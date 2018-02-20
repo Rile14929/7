@@ -14,6 +14,30 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+function convertToStarsArray(stars) {
+  var num = stars.toString().substring(0, 1);
+  var array = [];
+  for (var i = 1; i <= 5; i++) {
+    if (i <= num) {
+      array.push(1);
+    }
+    else {
+      array.push(0);
+    }
+  }
+  return array;
+}
+
+function convertToCastString(casts) {
+  var castsjoin = "";
+  for (var idx in casts) {
+    castsjoin = castsjoin + casts[idx].name + " / ";
+  }
+  return castsjoin.substring(0, castsjoin.length - 2);
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  convertToStarsArray: convertToStarsArray,
+  convertToCastString: convertToCastString
 }
